@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport id="sidenav"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar></mat-toolbar>
+    <mat-nav-list class="pt-5 mt-3">
+      <span>
+        <a mat-list-item ngbTooltip="Users" (click)="closeBar() ? drawer.toggle() : null">
+          <i class="fa fa-users fa-lg"></i>
+        </a><br><br>
+        <a mat-list-item ngbTooltip="Posts" (click)="closeBar() ? drawer.toggle() : null">
+          <mat-icon>file_copy</mat-icon>
+        </a><br><br>
+        <a mat-list-item ngbTooltip="Tags" (click)="closeBar() ? drawer.toggle() : null">
+          <i class="fa fa-tags fa-lg"></i>
+        </a>
+      </span>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="span">AppStats</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
