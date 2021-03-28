@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    padding: 0.5rem;
+    color: rgb(255, 242, 242);
+    background:  linear-gradient(to right, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100));
+}
+
+.ng-sidebar {
+    background: #086972;
+    width: 7rem;
+    border-radius: 5px;
+}
