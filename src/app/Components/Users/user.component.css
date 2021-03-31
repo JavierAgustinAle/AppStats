@@ -1,16 +1,30 @@
 main {
     margin: 0;
-    padding: 1rem;
+    padding: 1.5rem;
     box-sizing: border-box;
 }
 
-.gallery {
+main {
+    height: 100vh;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    column-gap: 15px;
-    row-gap: 15px;
+    grid-template-columns: repeat(auto-fill, 1fr);
 }
 
-.gallery img {
+main div {
     width: 100%;
+    height: 300px;
+    text-align: center;
 }
+
+.box1 {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: cornflowerblue;
+}
+.box2 {
+    background: darkgreen;
+}
+.box3 {
+    background: darkred;
+}
+

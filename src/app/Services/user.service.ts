@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 export class UserService {
 
     // Url
-    protected userAll = environment.URL + 'user';
+    protected userAll = environment.URL + 'user?limit=50';
     protected userByID = environment.URL + 'user/{userId}';
 
     protected postsByUserID = environment.URL + 'user/{userId}/post';
