@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  URL: 'https://dummyapi.io/data/api/',
-  KEY: '605b5d727a94425752ae1f91'
+  URL: 'https://randomuser.me/api/?'
 };
 
 /*

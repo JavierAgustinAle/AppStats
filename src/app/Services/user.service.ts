@@ -10,31 +10,18 @@ import { environment } from '../../environments/environment';
 export class UserService {
 
     // Url
-    protected userAll = environment.URL + 'user?limit=50';
-    protected userByID = environment.URL + 'user/{userId}';
+    protected userAll = environment.URL + 'inc=gender,name,nat,registered,dob&results=50';
 
-    protected postsByUserID = environment.URL + 'user/{userId}/post';
 
     constructor(private httpClient: HttpClient) { }
 
 
     getUsers() {
-        return this.httpClient.get(this.userAll, {
-            headers: { 'app-id': environment.KEY }
-        });
-    }
-
-    getUserByID(id: string) {
-        return this.httpClient.get(this.userByID.replace('{userId}', id), {
-            headers: { 'app-id': environment.KEY }
-        });
+        return this.httpClient.get(this.userAll);
     }
 
 
-    getPostByUserID(id: string) {
-        return this.httpClient.get(this.postsByUserID.replace('{postId}', id), {
-            headers: { 'app-id': environment.KEY }
-        });
-    }
+
+
 
 }

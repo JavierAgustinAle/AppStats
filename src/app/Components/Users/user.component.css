@@ -12,14 +12,15 @@ main {
 
 main div {
     width: 100%;
-    height: 300px;
     text-align: center;
 }
 
 .box1 {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background: cornflowerblue;
+    /* background: cornflowerblue; */
+    border: black 1px solid;
+    
 }
 .box2 {
     background: darkgreen;
@@ -28,3 +29,9 @@ main div {
     background: darkred;
 }
 
+.canvas-gender{
+    margin: auto;
+    padding: 10px;
+    height:80vh !important;
+    width:75vw !important;
+}

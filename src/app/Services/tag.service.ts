@@ -18,13 +18,13 @@ export class TagService {
 
     getTags() {
         return this.httpClient.get(this.tagsAll, {
-            headers: { 'app-id': environment.KEY }
+            // headers: { 'app-id': environment.KEY }
         });
     }
 
     getPostByID(tag: string) {
         return this.httpClient.get(this.postsByTag.replace('{tagTitle}', tag), {
-            headers: { 'app-id': environment.KEY }
+            // headers: { 'app-id': environment.KEY }
         });
     }
 

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,8 +20,7 @@ import { UserComponent } from './Components/Users/user.component';
   declarations: [
     AppComponent,
     MainNavComponent,
-    UserComponent
-  ],
+    UserComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -32,7 +32,8 @@ import { UserComponent } from './Components/Users/user.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

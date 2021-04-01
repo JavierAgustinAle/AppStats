@@ -21,20 +21,20 @@ export class PostService {
 
     getPosts() {
         return this.httpClient.get(this.postsAll, {
-            headers: { 'app-id': environment.KEY }
+            // headers: { 'app-id': environment.KEY }
         });
     }
 
     getPostByID(id: string) {
         return this.httpClient.get(this.postByID.replace('{postId}', id), {
-            headers: { 'app-id': environment.KEY }
+            // headers: { 'app-id': environment.KEY }
         });
     }
 
 
     getCommentByID(id: string) {
         return this.httpClient.get(this.commentsByIDPost.replace('{postId}', id), {
-            headers: { 'app-id': environment.KEY }
+            // headers: { 'app-id': environment.KEY }
         });
     }
 

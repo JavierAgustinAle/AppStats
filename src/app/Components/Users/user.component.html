@@ -1,6 +1,9 @@
 <main>
     <div class="box1">
         <h1>Genders</h1>
+        <canvas class="canvas-gender" baseChart [datasets]="genderChartData" [labels]="genderChartLabels"
+            [options]="chartOptions" [legend]="chartLegend" [chartType]="genderChartType">
+        </canvas>
     </div>
     <div class="box2">
         <h1>Age of our Users</h1>
