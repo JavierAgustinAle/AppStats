@@ -1,14 +1,20 @@
 <main>
-    <div class="box1">
-        <h1>Genders</h1>
-        <canvas class="canvas-gender" baseChart [datasets]="genderChartData" [labels]="genderChartLabels"
-            [options]="chartOptions" [legend]="chartLegend" [chartType]="genderChartType">
+    <h1 class="text-center">Stats from Our Users</h1>
+    <div class="box1 pt-2">
+        <h3>Genders</h3>
+        <canvas class="canvas" baseChart [datasets]="genderChartData" [labels]="genderChartLabels"
+            [options]="genderChartOptions" [legend]="chartLegend" [chartType]="genderChartType">
         </canvas>
     </div>
-    <div class="box2">
-        <h1>Age of our Users</h1>
+    <hr>
+    <div class="box2 pt-2">
+        <h3>Age of our Users</h3>
+        <canvas class="canvas" baseChart [data]="ageChartData" [labels]="ageChartLabels" [chartType]="ageChartType"
+            [options]="ageChartOptions" [colors]="ageChartColors" [legend]="chartLegend">
+        </canvas>
     </div>
-    <div class="box3">
+    <hr>
+    <div class="box3 pt-2">
         <h1>Box 3</h1>
     </div>
 </main>

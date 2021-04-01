@@ -9,18 +9,22 @@ import { environment } from '../../environments/environment';
 })
 export class UserService {
 
+    // inc=gender,name,nat,registered,dob&results=50
     // Url
-    protected userAll = environment.URL + 'inc=gender,name,nat,registered,dob&results=50';
+    protected userGender = environment.URL + 'inc=gender&results=50';
 
+    protected userAges = environment.URL + 'inc=dob&results=50';
 
     constructor(private httpClient: HttpClient) { }
 
 
-    getUsers() {
-        return this.httpClient.get(this.userAll);
+    getUsersGender() {
+        return this.httpClient.get(this.userGender);
     }
 
-
+    getUsersAge() {
+        return this.httpClient.get(this.userAges);
+    }
 
 
 

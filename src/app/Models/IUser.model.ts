@@ -3,6 +3,7 @@ import { ILocation } from './ILocation.model';
 export interface IUser {
     id: string;
     name: IName;
+    gender: string;
     location: ILocation;
     email: string;
     dob: IDateOfBirth;
@@ -17,5 +18,5 @@ interface IName {
 
 interface IDateOfBirth {
     date: string;
-    age: string;
+    age: number;
 }

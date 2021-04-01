@@ -13,23 +13,11 @@ main {
 main div {
     width: 100%;
     text-align: center;
+    background: rgb(66, 66, 66);
 }
 
-.box1 {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    /* background: cornflowerblue; */
-    border: black 1px solid;
-    
-}
-.box2 {
-    background: darkgreen;
-}
-.box3 {
-    background: darkred;
-}
 
-.canvas-gender{
+.canvas{
     margin: auto;
     padding: 10px;
     height:80vh !important;
