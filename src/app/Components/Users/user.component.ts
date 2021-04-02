@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 // Service
 import { UserService } from '../../Services/user.service';
 
@@ -10,6 +9,7 @@ import { IUser } from '../../Models/IUser.model';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
 
   usersGenders = [];
   userAges = []
+  userCountry = [];
 
   chartLegend = true;
 
@@ -104,6 +105,13 @@ export class UserComponent implements OnInit {
       this.userAges = response.results;
       this.loadChartAges();
     })
+
+    this.userService.getUsersCountry().subscribe((resp: any) => {
+      let allCountries = [];
+      resp.results.map(c => allCountries.push(c.nat));
+
+      this.loadStatsCountry(allCountries);
+    })
   }
 
 
@@ -138,6 +146,16 @@ export class UserComponent implements OnInit {
           : over++;
     });
     this.ageChartData = [under, between, over];
+  }
+
+  loadStatsCountry(countries: any[]) {
+    for (let country of countries) {
+      if (country in this.userCountry) {
+        ++this.userCountry[country];
+      } else {
+        this.userCountry[country] = 1;
+      }
+    }
   }
 
 }

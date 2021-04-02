@@ -23,3 +23,9 @@ main div {
     height:80vh !important;
     width:75vw !important;
 }
+
+.boxCountries{
+    height: 25vh;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}

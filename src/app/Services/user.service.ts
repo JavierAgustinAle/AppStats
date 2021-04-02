@@ -15,6 +15,8 @@ export class UserService {
 
     protected userAges = environment.URL + 'inc=dob&results=50';
 
+    protected userCountries = environment.URL + 'inc=nat&results=50';
+
     constructor(private httpClient: HttpClient) { }
 
 
@@ -26,6 +28,8 @@ export class UserService {
         return this.httpClient.get(this.userAges);
     }
 
-
+    getUsersCountry() {
+        return this.httpClient.get(this.userCountries);
+    }
 
 }
