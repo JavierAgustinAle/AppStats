@@ -1,7 +1,9 @@
 <main>
     <h1 class="text-center">Stats from Our Users</h1>
     <div class="pt-2">
-        <h3>Genders</h3>
+        <h3>Genders &nbsp;&nbsp;<span id="icon-tooltip"><i class="fa fa-question-circle"
+                    ngbTooltip="Genders selected by users at the time of registration" placement="right"></i></span>
+        </h3>
         <canvas class="canvas" baseChart [datasets]="genderChartData" [labels]="genderChartLabels"
             [options]="genderChartOptions" [legend]="chartLegend" [chartType]="genderChartType">
         </canvas>
@@ -18,11 +20,13 @@
         <div>
             <h4 class="pt-5 mt-3">Countries where we are present</h4>
         </div>
-        <div class="pt-5">
+        <div class="pt-5 flags-div">
             <span *ngFor="let c of userCountry | keyvalue ">
-                <img src="https://www.countryflags.io/{{c.key}}/flat/48.png" alt="{{c.key}}">
+                <img title="We have {{c.value}} users in {{c.key}}"
+                    src="https://www.countryflags.io/{{c.key}}/flat/48.png" alt="{{c.key}}"><br>
                 <span class="p-3">{{c.value}}</span>
             </span>
         </div>
     </div>
+    <hr>
 </main>

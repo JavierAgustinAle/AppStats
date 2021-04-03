@@ -1,6 +1,6 @@
 main {
     margin: 0;
-    padding: 1.5rem;
+    padding: 1.5em;
     box-sizing: border-box;
 }
 
@@ -25,7 +25,20 @@ main div {
 }
 
 .boxCountries{
-    height: 25vh;
+    height: 50vh;
+}
+
+.flags-div {
+    justify-content: center;
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: repeat(auto-fill, 100px);
+}
+
+#icon-tooltip{
+    font-size: 1.1rem;
+    color: rgb(126, 125, 125);
+}
+
+#icon-tooltip:hover {
+    color: white;
 }

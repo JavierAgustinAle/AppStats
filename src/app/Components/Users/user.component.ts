@@ -79,12 +79,12 @@ export class UserComponent implements OnInit {
       }
     }
   };
-  ageChartLabels: Label[] = [['Under 18'], ['Between 18 & 35'], ['Over 35']]
+  ageChartLabels: Label[] = [['Between 18 & 35'], ['Between 35 & 50'], ['Over 50']]
   ageChartData: number[] = [0, 0, 0];
   ageChartType: ChartType = 'doughnut';
   ageChartColors = [
     {
-      backgroundColor: ['rgba(187, 134, 252, 0.7)', 'rgba(55, 0, 179, 0.7)', 'rgba(3, 218, 198, 0.7)'],
+      backgroundColor: ['rgba(255, 48, 79, 1)', 'rgba(55, 0, 179, 0.7)', 'rgba(3, 218, 198, 0.7)'],
     },
   ];
 
@@ -138,14 +138,14 @@ export class UserComponent implements OnInit {
 
 
   loadChartAges() {
-    let under: number = 0, between: number = 0, over: number = 0;
+    let gr1: number = 0, gr2: number = 0, gr3: number = 0;
     this.userAges.map((a: IUser) => {
-      a.dob.age < 18 ? under++
-        : a.dob.age <= 35 ?
-          between++
-          : over++;
+      a.dob.age < 35 ? gr1++
+        : a.dob.age <= 50 ?
+          gr2++
+          : gr3++;
     });
-    this.ageChartData = [under, between, over];
+    this.ageChartData = [gr1, gr2, gr3];
   }
 
   loadStatsCountry(countries: any[]) {
