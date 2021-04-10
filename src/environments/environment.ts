@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  URL: 'https://randomuser.me/api/?'
+  //Users API
+  URL: 'https://randomuser.me/api/?',
+
+  //Posts API
+  POSTS_URL: 'https://dummyapi.io/data/api/',
+  POSTS_KEY: '606888c2fc5ed307a525f95f'
 };
 
 /*

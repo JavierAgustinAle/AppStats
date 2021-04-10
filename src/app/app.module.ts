@@ -15,12 +15,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UserComponent } from './Components/Users/user.component';
+import { PostsComponent } from './Components/posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    UserComponent],
+    UserComponent,
+    PostsComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

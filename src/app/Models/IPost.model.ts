@@ -1,5 +1,3 @@
-import { IUser } from './IUser.model'
-
 export interface IPost {
     text: string;
     image: string;
@@ -7,5 +5,4 @@ export interface IPost {
     link: string;
     tags: string[];
     publishDate: string;
-    owner: IUser;
 }

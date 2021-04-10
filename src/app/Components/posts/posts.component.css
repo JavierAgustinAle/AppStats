@@ -1,0 +1,17 @@
+main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+span{
+    padding: .5rem;
+}
+.card-body {
+    color: black;
+}
