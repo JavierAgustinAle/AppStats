@@ -1,8 +1,16 @@
 export interface IPost {
-    text: string;
-    image: string;
-    likes: number;
-    link: string;
-    tags: string[];
-    publishDate: string;
+    id: number;
+    address: string;
+    description: string;
+    media: Media;
+    occurred_at: number;
+    updated_at: number;
+    title: string;
+    type: string;
+
+}
+
+interface Media {
+    image_url: string;
+    image_url_thumb: string;
 }

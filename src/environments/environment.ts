@@ -8,8 +8,7 @@ export const environment = {
   URL: 'https://randomuser.me/api/?',
 
   //Posts API
-  POSTS_URL: 'https://dummyapi.io/data/api/',
-  POSTS_KEY: '606888c2fc5ed307a525f95f'
+  POSTS_URL: 'https://bikewise.org:443/api/v2/incidents'
 };
 
 /*

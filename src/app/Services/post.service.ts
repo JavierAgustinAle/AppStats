@@ -10,22 +10,18 @@ import { environment } from '../../environments/environment';
 export class PostService {
 
     // Url
-    protected postsAll = environment.POSTS_URL + 'post?limit=50';
-    protected commentsByID = environment.POSTS_URL + '/post/{postId}/comment';
+    protected postsAll = environment.POSTS_URL + '?page=1';
+    protected postById = environment.POSTS_URL + '/{id}';
 
 
     constructor(private httpClient: HttpClient) { }
 
     getPosts() {
-        return this.httpClient.get(this.postsAll, {
-            headers: { 'app-id': environment.POSTS_KEY }
-        });
+        return this.httpClient.get(this.postsAll);
     }
 
-    getCommentsByPost() {
-        return this.httpClient.get(this.commentsByID, {
-            headers: { 'app-id': environment.POSTS_KEY }
-        });
+    getPostByID() {
+        return this.httpClient.get(this.postById);
     }
 
 
