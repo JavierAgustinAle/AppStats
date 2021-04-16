@@ -12,6 +12,7 @@ import * as moment from 'moment';
 })
 export class PostsComponent implements OnInit {
   // moment(resp.incidents[0].updated_at * 1000).format("DD MMM YYYY hh:mm a")
+  isLoading: boolean = true;
   posts: IPost[] = [];
 
   constructor(private postService: PostService) { }
@@ -24,7 +25,7 @@ export class PostsComponent implements OnInit {
     this.postService.getPosts().subscribe((resp: any) => {
       console.log(resp.incidents);
       this.posts = resp.incidents;
-
+      this.isLoading = false;
       //(document.getElementById('loader') as HTMLElement).style.display = 'none';
     })
   }
