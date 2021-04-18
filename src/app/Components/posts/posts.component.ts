@@ -26,7 +26,6 @@ export class PostsComponent implements OnInit {
       console.log(resp.incidents);
       this.posts = resp.incidents;
       this.isLoading = false;
-      //(document.getElementById('loader') as HTMLElement).style.display = 'none';
     })
   }
 }

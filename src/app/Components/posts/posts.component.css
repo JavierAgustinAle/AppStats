@@ -6,14 +6,18 @@ main {
 }
 
 main {
+    margin: 1em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-span{
-    padding: .5rem;
-}
-.card-body {
+
+.card {
+    width: 18rem;
     color: black;
+    border: none;
 }
 
+.card img {
+    height: 230px;
+}

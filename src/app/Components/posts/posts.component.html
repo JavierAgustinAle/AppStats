@@ -1,5 +1,52 @@
-<main>
-    <div class="pr-2" *ngIf="isLoading">
-        <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+<div *ngIf="isLoading">
+    <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+</div>
+<main *ngIf="!isLoading">
+    <div class="card">
+        <img class="card-img-top" src="https://files.bikeindex.org/uploads/Pu/419281/large_original.jpg"
+            alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
     </div>
+    <div class="card">
+        <img class="card-img-top"
+            src="https://files.bikeindex.org/uploads/Pu/419351/large_D6C9C235-1875-46C2-90E9-605FCF2031E3.jpeg"
+            alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top"
+            src="https://files.bikeindex.org/uploads/Pu/419584/large_1AB885CA-F138-443F-A7D8-0494461A9B8F.jpg"
+            alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top"
+            src="https://seeclickfix.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN1JGUmc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--af6a7b51374fd579fc55420339a47354ca46180f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9RWVhWMGIxOXZjbWxsYm5SVU9ncHpkSEpwY0ZRNkMzSmxjMmw2WlVraUREZ3dNSGcyTURBR09nWkZWQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--0a54b8f8956b3b13ab7a9e97d1d66e008d130064/image.jpg"
+            alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+    </div>
+    <span class="pt-2">
+        <div class="card">
+            <img class="card-img-top" src="https://www.komentarai.lt/images/not-available.png" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+            </div>
+        </div>
+    </span>
+
+
 </main>
