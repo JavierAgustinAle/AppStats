@@ -10,10 +10,26 @@
             <div class="card-custom-img" *ngIf="p.media.image_url"
                 style="background-image: url({{p.media.image_url}});">
             </div>
-            <div class="card-body" style="overflow-y: auto">
-                <h4 class="card-title">{{p.title}}</h4>
-                <p class="card-text">{{p.description | slice:0:150}}{{ p.description.length > 150 ? '....read more' : ''
-                    }}</p>
+            <div class="card-body">
+                <div>
+                    <h4 class="card-title">{{p.title }}</h4>
+                    <p class="card-text pb-3" *ngIf="p.description">{{p.description | slice:0:90 }}{{
+                        p.description.length >
+                        150
+                        ? '...' : ''
+                        }}
+                    </p>
+                    <div class="pb-5 mb-3" *ngIf="!p.description"></div>
+                </div>
+                <div class="row text-center">
+                    <p class="col-6 detail">Type</p>
+                    <p class="col-6 float-right">{{p.type ? p.type : '-'}}</p>
+                    <p class="col-6 detail">Date</p>
+                    <p class="col-6 float-right">{{p.occurred_at}}</p>
+                    <p class="col-6 detail">Address</p>
+                    <p class="col-6">{{p.address}}</p>
+                </div>
+
             </div>
         </div>
     </span>

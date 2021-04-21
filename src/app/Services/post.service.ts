@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 export class PostService {
 
     // Url + '?page=1&per_page=250';
-    protected postsAll = environment.POSTS_URL + '?page=1&per_page=15';
+    protected postsAll = environment.POSTS_URL + '?page=1&per_page=250';
     protected postById = environment.POSTS_URL + '/{id}';
 
 

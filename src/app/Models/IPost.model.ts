@@ -3,7 +3,7 @@ export interface IPost {
     address: string;
     description: string;
     media: Media;
-    occurred_at: number;
+    occurred_at: any;
     updated_at: number;
     title: string;
     type: string;
