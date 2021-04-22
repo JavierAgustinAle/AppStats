@@ -30,7 +30,6 @@ export class PostsComponent implements OnInit {
 
   loadData() {
     this.postService.getPosts().subscribe((resp: any) => {
-      console.log(resp.incidents);
       this.posts = resp.incidents;
       this.posts.map(ps => {
         ps.occurred_at = moment(parseInt(ps.occurred_at) * 1000).format("DD MMM YYYY");
