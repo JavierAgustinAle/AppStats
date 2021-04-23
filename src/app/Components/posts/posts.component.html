@@ -2,7 +2,7 @@
     <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
 </div>
 <main *ngIf="!isLoading">
-    <span class="pt-2 pb-2 row" *ngFor="let p of posts">
+    <span class="pt-2 pb-2 row" *ngFor="let p of posts | paginate: { itemsPerPage: 20, currentPage: pageNumber }">
         <div class="card card-custom bg-white border-white border-0">
             <div class="card-custom-img" *ngIf="!p.media.image_url"
                 style="background-image: url(https://img.freepik.com/vector-gratis/fondo-diseno-abstracto-degradado-azul-morado_1048-13167.jpg?size=626&ext=jpg&ga=GA1.2.855662366.1616976000);">
@@ -33,5 +33,7 @@
             </div>
         </div>
     </span>
-
 </main>
+<span *ngIf="!isLoading" class="text-center pb-3">
+    <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
+</span>

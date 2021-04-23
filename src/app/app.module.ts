@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './Components/main-nav/main-nav.component';
@@ -38,7 +39,7 @@ import { PostsComponent } from './Components/posts/posts.component';
     MatIconModule,
     MatListModule,
     ChartsModule,
-
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

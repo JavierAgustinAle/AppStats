@@ -21,6 +21,7 @@ export class PostsComponent implements OnInit {
   */
   isLoading: boolean = true;
   posts: IPost[] = [];
+  pageNumber: number = 1;
 
   constructor(private postService: PostService) { }
 
