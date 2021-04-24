@@ -34,6 +34,10 @@
         </div>
     </span>
 </main>
-<span *ngIf="!isLoading" class="text-center pb-3">
-    <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
-</span>
+<div>
+    <div *ngIf="!isLoading" class="col-md-3 col-sm-6 text-center pt-1 cont">
+        <pagination-controls maxSize="5" class="paginator" (pageChange)="pageNumber = $event" responsive="true"
+            autoHide="true" previousLabel="" nextLabel="">
+        </pagination-controls>
+    </div>
+</div>
