@@ -18,13 +18,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
+import { PostDetailsComponent } from './Components/post-details/post-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     UserComponent,
-    PostsComponent],
+    PostsComponent,
+    PostDetailsComponent],
   imports: [
     MatProgressBarModule,
     BrowserAnimationsModule,

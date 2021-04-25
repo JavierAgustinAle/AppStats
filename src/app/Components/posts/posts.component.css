@@ -12,9 +12,9 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-
 .card {
     opacity: 0.8;
+    cursor: pointer;
 }
 .card-title{
     font-family: 'Roboto', sans-serif;
@@ -38,6 +38,7 @@ main {
     background-position: center;
     border-color: inherit;
 }
+
   
 .card-custom-img::after {
     position: absolute;

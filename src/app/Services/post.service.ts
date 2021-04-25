@@ -20,8 +20,8 @@ export class PostService {
         return this.httpClient.get(this.postsAll);
     }
 
-    getPostByID() {
-        return this.httpClient.get(this.postById);
+    getPostByID(id: number) {
+        return this.httpClient.get(this.postById.replace('{id}', id.toString()));
     }
 
 
