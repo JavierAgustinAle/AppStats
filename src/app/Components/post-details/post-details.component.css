@@ -1,0 +1,42 @@
+.container {
+   box-sizing: border-box;
+    padding: 1rem;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 3px;
+    row-gap: 5px;
+    justify-content: center;
+}
+
+
+.section1 {
+    border-radius: 10px;
+    background-color: rgba(255,255,255,.08);
+    color: white;
+}
+.card-title{
+    font-family: 'Roboto', sans-serif;
+}
+.card-img-top {
+    border-radius: 10px;
+    max-height: 420px;
+}
+
+p{
+    font-size: 18px;
+}
+
+.section2{
+    border-radius: 10px;
+    background-color: rgba(255,255,255,.08);
+    color: white;
+}
+
+.section-map{
+   border-radius: 10px;
+    background-color: rgba(255,255,255,.08);
+    color: white;
+}

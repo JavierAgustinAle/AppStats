@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../Services/post.service';
 import { IPost } from '../../Models/IPost.model'
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
@@ -11,7 +13,7 @@ import { IPost } from '../../Models/IPost.model'
 })
 export class PostDetailsComponent implements OnInit {
 
-  post = [];
+  post: IPost = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +24,10 @@ export class PostDetailsComponent implements OnInit {
     const postId = Number(routeParams.get('id'));
 
     this.postService.getPostByID(postId).subscribe((res: any) => {
-      console.log(res.incident)
+      this.post = res.incident;
+      this.post.occurred_at = moment(parseInt(this.post.occurred_at) * 1000).format("DD MMM YYYY");
+    }, error => {
+      console.error(error);
     })
   }
 
