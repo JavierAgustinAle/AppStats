@@ -14,6 +14,8 @@ import * as moment from 'moment';
 export class PostDetailsComponent implements OnInit {
 
   post: IPost = null;
+  lng: number = null;
+  lat: number = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,9 +28,16 @@ export class PostDetailsComponent implements OnInit {
     this.postService.getPostByID(postId).subscribe((res: any) => {
       this.post = res.incident;
       this.post.occurred_at = moment(parseInt(this.post.occurred_at) * 1000).format("DD MMM YYYY");
+
+      this.postService.getExtraInfo(this.post.source.api_url).subscribe((response: any) => {
+        response.lat ? this.lat = response.lat : null;
+        response.lng ? this.lng = response.lng : null;
+
+      })
     }, error => {
       console.error(error);
     })
   }
+
 
 }

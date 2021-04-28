@@ -13,6 +13,7 @@ export class PostService {
     protected postsAll = environment.POSTS_URL + '?page=1&per_page=250';
     protected postById = environment.POSTS_URL + '/{id}';
 
+    protected extraInfoPost = '{url}';
 
     constructor(private httpClient: HttpClient) { }
 
@@ -24,5 +25,8 @@ export class PostService {
         return this.httpClient.get(this.postById.replace('{id}', id.toString()));
     }
 
+    getExtraInfo(url: string) {
+        return this.httpClient.get(this.extraInfoPost.replace('{url}', url));
+    }
 
 }

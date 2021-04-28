@@ -19,6 +19,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
 import { PostDetailsComponent } from './Components/post-details/post-details.component';
+import { OlMapComponent } from './Components/ol-map/ol-map.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PostDetailsComponent } from './Components/post-details/post-details.com
     MainNavComponent,
     UserComponent,
     PostsComponent,
-    PostDetailsComponent],
+    PostDetailsComponent,
+    OlMapComponent],
   imports: [
     MatProgressBarModule,
     BrowserAnimationsModule,
