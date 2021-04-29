@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnInit, Input, ElementRef } from '@angular/co
 
 // OpenLayers
 import Map from 'ol/Map';
+import 'ol/ol.css';
+import BingMaps from 'ol/source/BingMaps';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import XYZ from 'ol/source/XYZ';
@@ -41,10 +43,18 @@ export class OlMapComponent implements OnInit, AfterViewInit {
     this.map = new Map({
       target: 'map',
       layers: [
+        // new TileLayer({
+        //   source: new XYZ({
+        //     url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        //   })
+        // })
         new TileLayer({
-          source: new XYZ({
-            url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          })
+          visible: true,
+          preload: Infinity,
+          source: new BingMaps({
+            key: 'AtEpLnaZJDXX4L0gccMBrm_wqpZA2fWs50jj4bf1l4_3MhmG27VIibiu6ZcS8mwf',
+            imagerySet: 'AerialWithLabelsOnDemand'
+          }),
         })
       ],
       view: new View({

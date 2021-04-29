@@ -40,3 +40,7 @@ p{
     background-color: rgba(255,255,255,.08);
     color: white;
 }
+#map-container{
+    padding: 0 35px 40px 35px;
+    min-width: 300px;
+}
