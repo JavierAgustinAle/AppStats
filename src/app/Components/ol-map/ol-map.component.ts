@@ -3,13 +3,16 @@ import { AfterViewInit, Component, OnInit, Input, ElementRef } from '@angular/co
 // OpenLayers
 import Map from 'ol/Map';
 import 'ol/ol.css';
-import BingMaps from 'ol/source/BingMaps';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
-import XYZ from 'ol/source/XYZ';
 import * as Proj from 'ol/proj';
 import { defaults as defaultControls } from 'ol/control';
-
+import { Feature } from 'ol';
+import Point from 'ol/geom/Point';
+import { Icon, Style } from 'ol/style';
+import VectorSource from 'ol/source/Vector';
+import VectorLayer from 'ol/layer/Vector';
+import OSM from 'ol/source/OSM';
 
 export const DEFAULT_HEIGHT = '500px';
 export const DEFAULT_WIDTH = '500px';
@@ -29,7 +32,9 @@ export class OlMapComponent implements OnInit, AfterViewInit {
   map: Map;
 
   private mapEl: HTMLElement;
-
+  location;
+  vectorSource;
+  vectorLayer;
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
@@ -40,22 +45,35 @@ export class OlMapComponent implements OnInit, AfterViewInit {
     this.mapEl = this.elementRef.nativeElement.querySelector('#map');
     this.setSize();
 
+    this.location = new Feature({
+      geometry: new Point(Proj.fromLonLat([this.lng, this.lat]))
+    });
+
+
+    this.location.setStyle(new Style({
+      image: new Icon(({
+        color: '#131214',
+        crossOrigin: 'anonymous',
+        src: 'assets/point.svg',
+        imgSize: [20, 20]
+      }))
+    }));
+
+    this.vectorSource = new VectorSource({
+      features: [this.location]
+    });
+
+    this.vectorLayer = new VectorLayer({
+      source: this.vectorSource
+    });
+
     this.map = new Map({
       target: 'map',
       layers: [
-        // new TileLayer({
-        //   source: new XYZ({
-        //     url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        //   })
-        // })
         new TileLayer({
-          visible: true,
-          preload: Infinity,
-          source: new BingMaps({
-            key: 'AtEpLnaZJDXX4L0gccMBrm_wqpZA2fWs50jj4bf1l4_3MhmG27VIibiu6ZcS8mwf',
-            imagerySet: 'AerialWithLabelsOnDemand'
-          }),
-        })
+          source: new OSM()
+        }),
+        this.vectorLayer
       ],
       view: new View({
         center: Proj.fromLonLat([this.lng, this.lat]),
@@ -84,5 +102,7 @@ function coerceCssPixelValue(value: any): string {
   }
 
   return cssUnitsPattern.test(value) ? value : `${value}px`;
+
+
 }
 

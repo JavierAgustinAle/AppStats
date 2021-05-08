@@ -20,10 +20,13 @@
         </div>
     </div>
     <div class="section-map">
-        <h6 class="text-center pt-1">{{post.address}}</h6>
         <div *ngIf="lat != null && lng != null" id="map-container">
+            <h6 class="text-center pt-1">Incident address {{post.address}}</h6>
             <app-ol-map [lat]="lat" [lng]="lng" zoom="16" width="100%" height="400px">
             </app-ol-map>
+        </div>
+        <div *ngIf="lng === null">
+            <h4 class="text-center p-4">Incident address {{post.address}}</h4>
         </div>
     </div>
 </div>
