@@ -11,6 +11,11 @@
     justify-content: center;
 }
 
+.btn-back {
+    padding-right: 2em;
+    padding-top: 1em;
+    cursor: pointer;
+}
 
 .section1 {
     border-radius: 10px;
