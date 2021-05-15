@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  //Users API
+  // Users API
   URL: 'https://randomuser.me/api/?',
 
-  //Posts API
+  // Posts API
   POSTS_URL: 'https://bikewise.org:443/api/v2/incidents'
 };
 

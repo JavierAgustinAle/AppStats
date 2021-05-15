@@ -7,7 +7,6 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
-import { MainNavComponent } from './Components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,10 +15,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { OlMapComponent } from './Components/ol-map/ol-map.component';
+import { StoreModule } from '@ngrx/store';
+
+// Components
+import { MainNavComponent } from './Components/main-nav/main-nav.component';
 import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
 import { PostDetailsComponent } from './Components/post-details/post-details.component';
-import { OlMapComponent } from './Components/ol-map/ol-map.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { OlMapComponent } from './Components/ol-map/ol-map.component';
     MatIconModule,
     MatListModule,
     ChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
