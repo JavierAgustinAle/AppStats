@@ -16,7 +16,11 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { OlMapComponent } from './Components/ol-map/ol-map.component';
+
+
+// Redux
 import { StoreModule } from '@ngrx/store';
+import { postsReducer } from './store/reducers/posts.reducer';
 
 // Components
 import { MainNavComponent } from './Components/main-nav/main-nav.component';
@@ -47,7 +51,7 @@ import { PostDetailsComponent } from './Components/post-details/post-details.com
     MatListModule,
     ChartsModule,
     NgxPaginationModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ posts: postsReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

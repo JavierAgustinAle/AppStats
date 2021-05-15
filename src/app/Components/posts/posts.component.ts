@@ -4,6 +4,9 @@ import { PostService } from '../../Services/post.service';
 import { IPost } from '../../Models/IPost.model';
 import * as moment from 'moment';
 
+// Redux
+import { Store } from '@ngrx/store';
+import * as action from '../../store/actions/posts.action';
 
 @Component({
   selector: 'app-posts',
