@@ -6,7 +6,9 @@ import * as moment from 'moment';
 
 // Redux
 import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
 import * as action from '../../store/actions/posts.action';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -26,9 +28,15 @@ export class PostsComponent implements OnInit {
   posts: IPost[] = [];
   pageNumber = 1;
 
-  constructor(private postService: PostService) { }
+  posts$: Observable<any>;
+
+  constructor(private postService: PostService, private store: Store<AppState>) {
+    this.posts$ = this.store.select('posts');
+  }
 
   ngOnInit(): void {
+
+
     this.loadData();
   }
 
@@ -41,5 +49,6 @@ export class PostsComponent implements OnInit {
       });
       this.isLoading = false;
     });
+
   }
 }

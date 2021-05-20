@@ -1,14 +1,17 @@
-import { createReducer, on } from '@ngrx/store';
-import * as action from '../actions/posts.action';
+import { Action } from '@ngrx/store'
+import * as PostsActions from '../actions/posts.action';
 
 
-export const initialStore = []
+export const initialState = []
 
-const _postsReducer = createReducer(
-    initialStore,
-    on(action.allPosts, (state) => state)
-)
-
-export function postsReducer(state, action) {
-    return _postsReducer(state, action);
+export function postsReducer(state: any[] = [initialState], action: PostsActions.Actions) {
+    debugger;
+    switch (action.type) {
+        case PostsActions.ADD_POSTS:
+            return [...state, action.payload];
+        case PostsActions.GET_POSTS:
+            return [state];
+        default:
+            return state;
+    }
 }
