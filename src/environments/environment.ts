@@ -12,7 +12,7 @@ export const environment = {
 
   // Tags API
   TAGS_URL: 'https://dummyapi.io/data/api/tag?',
-  API_KEY: '606888c2fc5ed307a525f95f'
+  API_KEY: '60abbfa4d68ac91cdbc1bd04'
 };
 
 /*
