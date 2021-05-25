@@ -15,6 +15,18 @@ export class TagsComponent implements OnInit {
     { title: 'pet' },
     { title: 'blanket' },
     { title: 'sheep' },
+    { title: 'asleep' },
+    { title: 'road sign' },
+    { title: 'pet' },
+    { title: 'blanket' },
+    { title: 'sheep' },
+    { title: 'asleep' },
+    { title: 'sheep' },
+    { title: 'asleep' },
+    { title: 'road sign' },
+    { title: 'pet' },
+    { title: 'blanket' },
+    { title: 'sheep' },
     { title: 'asleep' }
   ]
 
