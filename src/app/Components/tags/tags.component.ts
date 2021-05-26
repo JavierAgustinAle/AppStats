@@ -9,36 +9,14 @@ import { TagService } from '../../Services/tag.service';
 })
 export class TagsComponent implements OnInit {
 
-  tags = [
-    { title: 'grass' },
-    { title: 'road sign' },
-    { title: 'pet' },
-    { title: 'blanket' },
-    { title: 'sheep' },
-    { title: 'asleep' },
-    { title: 'road sign' },
-    { title: 'pet' },
-    { title: 'blanket' },
-    { title: 'sheep' },
-    { title: 'asleep' },
-    { title: 'sheep' },
-    { title: 'asleep' },
-    { title: 'road sign' },
-    { title: 'pet' },
-    { title: 'blanket' },
-    { title: 'sheep' },
-    { title: 'asleep' }
-  ]
+  tags: ITag[];
 
   constructor(private tagService: TagService) { }
 
   ngOnInit(): void {
-    // this.tagService.getTags().subscribe((res: any) => {
-    //   console.log(res.data)
-    // })
-    this.tags.map(p => p['timesUse'] = Math.floor(Math.random() * (100 - 1)) + 1);
-    console.log(this.tags)
-
+    this.tagService.getTags().subscribe((res: any) => {
+      this.tags = res.data;
+    })
   }
 
 }
