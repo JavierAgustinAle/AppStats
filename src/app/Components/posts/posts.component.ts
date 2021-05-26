@@ -45,10 +45,9 @@ export class PostsComponent implements OnInit {
       this.posts = resp.incidents;
       this.posts.map(ps => {
         ps.occurred_at = moment(parseInt(ps.occurred_at, 10) * 1000).format('DD MMM YYYY');
-        if (ps.type === 'Unconfirmed') { ps.type = 'Undefined' };
+        if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
       });
       this.isLoading = false;
     });
-
   }
 }
