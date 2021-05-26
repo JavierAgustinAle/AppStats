@@ -16,7 +16,7 @@ export class TagsComponent implements OnInit {
   ngOnInit(): void {
     this.tagService.getTags().subscribe((res: any) => {
       this.tags = res.data;
-    })
+    });
   }
 
 }
