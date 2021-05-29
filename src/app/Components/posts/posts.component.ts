@@ -48,6 +48,8 @@ export class PostsComponent implements OnInit {
         if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
       });
       this.isLoading = false;
+
+      this.store.dispatch(action.AddPostsAction({ posts: this.posts }));
     });
   }
 }
