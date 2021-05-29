@@ -19,9 +19,9 @@ export class PostsComponent implements OnInit {
         infrasctucture_issue
         chop_shop
   */
-  isLoading: boolean = true;
+  isLoading = true;
   posts: IPost[] = [];
-  pageNumber: number = 1;
+  pageNumber = 1;
 
   constructor(private postService: PostService) { }
 
@@ -29,14 +29,14 @@ export class PostsComponent implements OnInit {
     this.loadData();
   }
 
-  loadData() {
+  loadData(): void {
     this.postService.getPosts().subscribe((resp: any) => {
       this.posts = resp.incidents;
       this.posts.map(ps => {
-        ps.occurred_at = moment(parseInt(ps.occurred_at) * 1000).format("DD MMM YYYY");
-        ps.type === "Unconfirmed" ? ps.type = 'Undefined' : null;
+        ps.occurred_at = moment(parseInt(ps.occurred_at, 10) * 1000).format('DD MMM YYYY');
+        if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
       });
       this.isLoading = false;
-    })
+    });
   }
 }

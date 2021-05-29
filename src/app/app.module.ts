@@ -16,10 +16,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
 import { PostDetailsComponent } from './Components/post-details/post-details.component';
 import { OlMapComponent } from './Components/ol-map/ol-map.component';
+import { TagsComponent } from './Components/tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { OlMapComponent } from './Components/ol-map/ol-map.component';
     UserComponent,
     PostsComponent,
     PostDetailsComponent,
-    OlMapComponent],
+    OlMapComponent,
+    TagsComponent],
   imports: [
     MatProgressBarModule,
     BrowserAnimationsModule,

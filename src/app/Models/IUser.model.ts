@@ -7,7 +7,7 @@ export interface IUser {
     location: ILocation;
     email: string;
     dob: IDateOfBirth;
-    nat: string; //Nationality
+    nat: string; // Nationality
 }
 
 interface IName {

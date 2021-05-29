@@ -19,7 +19,7 @@ export class MainNavComponent {
   constructor(private breakpointObserver: BreakpointObserver) { }
 
 
-  closeBar() {
+  closeBar(): boolean {
     if (window.innerWidth < 960) {
       return true;
     } else {

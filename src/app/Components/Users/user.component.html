@@ -23,8 +23,8 @@
         <div class="pt-5 flags-div">
             <span *ngFor="let c of userCountry | keyvalue ">
                 <img title="We have {{c.value}} users in {{c.key}}" alt="{{c.key}}"
-                    src="https://flagcdn.com/w40/{{c.key | lowercase}}.png"><br>
-                <!-- src="https://www.countryflags.io/{{c.key}}/flat/48.png"  -->
+                    src="https://www.countryflags.io/{{c.key}}/flat/48.png"><br>
+                <!-- src="https://flagcdn.com/w40/{{c.key | lowercase}}.png"  -->
                 <span class="p-3">{{c.value}}</span>
             </span>
         </div>

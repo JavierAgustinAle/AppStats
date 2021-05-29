@@ -1,0 +1,42 @@
+main {
+    margin: 0;
+    padding: 1.5em;
+    box-sizing: border-box;
+}
+
+h3{
+  font-size: 35px;
+  font-family: 'Roboto', sans-serif;
+}
+
+main div {
+    width: 100%;
+    text-align: center;
+    background: rgb(66, 66, 66);
+}
+
+.boxTags{
+    height: 50vh;
+}
+
+.card-div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 25%);
+}
+
+.card {
+  color: azure;
+    width: 12em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.938);
+    transition: 0.2s;
+    border-radius: 5px; 
+  }
+  
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(116, 115, 115, 0.555);
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
