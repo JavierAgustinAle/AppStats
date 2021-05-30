@@ -1,18 +1,18 @@
-import { createAction, props } from '@ngrx/store';
+import { Injectable } from '@angular/core';
+import { Action } from '@ngrx/store';
 
-export const ADD_POSTS = '[POST] Add';
-export const GET_POSTS = '[GET] Get';
+export const ADD_POSTS = '[POSTS] Add';
+export const GET_POSTS = '[POSTS] Get';
 
-export const AddPostsAction = createAction(
-    '[POSTS] Add',
-    props<{ posts: any[] }>()
-);
+export class AddPosts implements Action {
+    readonly type = ADD_POSTS
 
-// export class GetPostsAction implements Action {
-//     readonly type = GET_POSTS
+    constructor(public payload: any) { }
+}
 
-//     constructor() { }
-// }
+export class GetPosts implements Action {
+    readonly type = GET_POSTS
+}
 
 
-// export type Actions = AddPostsAction | GetPostsAction;
+export type Actions = AddPosts | GetPosts;
