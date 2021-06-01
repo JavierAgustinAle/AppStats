@@ -8,16 +8,15 @@ import * as moment from 'moment';
 // Redux
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
-import { Observable } from 'rxjs';
 import * as PostsActions from '../../store/actions/posts.action';
 import { take } from 'rxjs/operators';
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit, OnDestroy {
-  posts$: Observable<IPost[]>;
   private subs = new SubSink();
   /* Types:
         crash
@@ -32,9 +31,7 @@ export class PostsComponent implements OnInit, OnDestroy {
   pageNumber = 1;
 
   state: Store;
-  constructor(private postService: PostService, private store: Store<AppState>) {
-    this.posts$ = store.select('posts');
-  }
+  constructor(private postService: PostService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -61,17 +58,17 @@ export class PostsComponent implements OnInit, OnDestroy {
         }
       }
       )
-    )
+    );
 
   }
 
-  addPosts(posts) {
+  addPosts(posts): void {
     for (let i = 0; i < posts.length; i++) {
       this.store.dispatch(new PostsActions.AddPosts(posts[i]));
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subs.unsubscribe();
   }
 }
