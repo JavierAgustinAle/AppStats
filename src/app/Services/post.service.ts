@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,15 +18,15 @@ export class PostService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getPosts() {
+    getPosts(): Observable<any> {
         return this.httpClient.get(this.postsAll);
     }
 
-    getPostByID(id: number) {
+    getPostByID(id: number): Observable<any> {
         return this.httpClient.get(this.postById.replace('{id}', id.toString()));
     }
 
-    getExtraInfo(url: string) {
+    getExtraInfo(url: string): Observable<any> {
         return this.httpClient.get(this.extraInfoPost.replace('{url}', url));
     }
 

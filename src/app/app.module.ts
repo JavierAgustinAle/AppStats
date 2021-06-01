@@ -6,8 +6,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+// Redux
+import { StoreModule } from '@ngrx/store';
+import { PostReducer } from '../app/store/reducers/posts.reducer';
+
 import { AppComponent } from './app.component';
-import { MainNavComponent } from './Components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,6 +25,9 @@ import { PostsComponent } from './Components/posts/posts.component';
 import { PostDetailsComponent } from './Components/post-details/post-details.component';
 import { OlMapComponent } from './Components/ol-map/ol-map.component';
 import { TagsComponent } from './Components/tags/tags.component';
+import { MainNavComponent } from './Components/main-nav/main-nav.component';
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +52,10 @@ import { TagsComponent } from './Components/tags/tags.component';
     MatIconModule,
     MatListModule,
     ChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    StoreModule.forRoot({
+      posts: PostReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
