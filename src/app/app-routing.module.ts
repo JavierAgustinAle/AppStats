@@ -7,10 +7,12 @@ import { PostDetailsComponent } from './Components/post-details/post-details.com
 import { TagsComponent } from './Components/tags/tags.component';
 
 const routes: Routes = [
+  { path: '', component: UserComponent },
   { path: 'users', component: UserComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'posts/:id', component: PostDetailsComponent },
-  { path: 'tags', component: TagsComponent }
+  { path: 'tags', component: TagsComponent },
+  { path: '**', component: UserComponent }
 ];
 
 @NgModule({
