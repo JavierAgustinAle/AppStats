@@ -1,8 +1,20 @@
 <div *ngIf="isLoading">
     <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
 </div>
+
+<div *ngIf="!isLoading" class="filter-posts">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Incident Type</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
 <main *ngIf="!isLoading">
-    <span class="pt-2 pb-2 row"
+    <span class="pb-2 row"
         *ngFor="let p of posts | paginate: { itemsPerPage: 20, currentPage: pageNumber } ; let i = index">
         <div class="card card-custom bg-white border-white border-0" [routerLink]="['/posts', p.id]">
             <div class="card-custom-img" *ngIf="!p.media.image_url"

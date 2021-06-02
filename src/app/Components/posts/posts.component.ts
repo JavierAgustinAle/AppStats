@@ -29,6 +29,11 @@ export class PostsComponent implements OnInit, OnDestroy {
   isLoading = true;
   posts: IPost[] = [];
   pageNumber = 1;
+  foods = [
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' }
+  ];
 
   state: Store;
   constructor(private postService: PostService, private store: Store<AppState>) { }

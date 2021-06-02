@@ -10,7 +10,11 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-
+.filter-posts {
+    padding: 1rem;
+    padding-left: 3rem;
+    margin: 1em;
+}
 .card {
     opacity: 0.8;
     cursor: pointer;

@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
@@ -50,6 +51,7 @@ import { MainNavComponent } from './Components/main-nav/main-nav.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatSelectModule,
     MatListModule,
     ChartsModule,
     NgxPaginationModule,

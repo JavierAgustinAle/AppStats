@@ -21,7 +21,7 @@ main div {
 
 .card-div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 25%);
+    grid-template-columns: repeat(auto-fit, 33%);
 }
 
 .card {
@@ -39,4 +39,16 @@ main div {
   
   .container {
     padding: 2px 16px;
+  }
+
+
+  @media screen and (max-width: 655px) and (min-width: 451px) {
+    .card-div {
+      grid-template-columns: repeat(auto-fit, 50%);
+    }
+  }
+  @media (max-width: 450px) {
+    .card-div {
+      grid-template-columns: repeat(auto-fit, 100%);
+    }
   }
