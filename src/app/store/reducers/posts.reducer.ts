@@ -21,10 +21,13 @@ const initialState: Posts = {
     updated_at: 1622073875
 };
 
+
 export function PostReducer(state: any[] = [initialState], action: PostsActions.Actions): Posts[] {
     switch (action.type) {
         case PostsActions.ADD_POSTS:
             return [...state, action.payload];
+        case PostsActions.GET_POSTS:
+            return state;
         default:
             return state;
     }

@@ -9,6 +9,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // Redux
 import { StoreModule } from '@ngrx/store';
 import { PostReducer } from '../app/store/reducers/posts.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -57,7 +58,8 @@ import { MainNavComponent } from './Components/main-nav/main-nav.component';
     NgxPaginationModule,
     StoreModule.forRoot({
       posts: PostReducer
-    })
+    }),
+    StoreDevtoolsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

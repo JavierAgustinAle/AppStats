@@ -18,35 +18,36 @@ import { take } from 'rxjs/operators';
 })
 export class PostsComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
-  /* Types:
-        crash
-        hazard
-        theft
-        Undefined
-        infrasctucture_issue
-        chop_shop
-  */
   isLoading = true;
   posts: IPost[] = [];
+
   pageNumber = 1;
-  foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
+  types = [
+    { label: 'Show All' },
+    { value: 'Undefined', label: 'Undefined' },
+    { value: 'Hazard', label: 'Hazard' },
+    { value: 'Theft', label: 'Theft' },
+    { value: 'Crash', label: 'Crash' },
+    { value: 'Infrastructure issue', label: 'Infrasctucture Issue' },
+    { value: 'Chop shop', label: 'Chop Shop' }
   ];
 
-  state: Store;
   constructor(private postService: PostService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.loadData();
   }
 
-  loadData(): void {
+  loadData(filterSelect?: string): void {
     this.subs.add(
       this.store.select('posts').pipe(take(1)).subscribe(s => {
         if (s.length > 1) {
-          this.posts = s;
+          if (filterSelect) {
+            const result = s.filter(p => p.type === filterSelect);
+            this.posts = result;
+          } else {
+            this.posts = s;
+          }
           this.isLoading = false;
         } else {
           this.postService.getPosts().subscribe((resp: any) => {
@@ -71,6 +72,10 @@ export class PostsComponent implements OnInit, OnDestroy {
     for (let i = 0; i < posts.length; i++) {
       this.store.dispatch(new PostsActions.AddPosts(posts[i]));
     }
+  }
+
+  filterPosts(e: string): void {
+    this.loadData(e);
   }
 
   ngOnDestroy(): void {
