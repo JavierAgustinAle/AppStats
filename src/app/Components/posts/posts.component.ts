@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
 import * as PostsActions from '../../store/actions/posts.action';
+import * as FilterActions from '../../store/actions/filter.actions';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -22,8 +23,10 @@ export class PostsComponent implements OnInit, OnDestroy {
   posts: IPost[] = [];
 
   pageNumber = 1;
+  selected: string;
+  showMsg = false;
   types = [
-    { label: 'Show All' },
+    { value: '', label: 'Show All' },
     { value: 'Undefined', label: 'Undefined' },
     { value: 'Hazard', label: 'Hazard' },
     { value: 'Theft', label: 'Theft' },
@@ -38,34 +41,16 @@ export class PostsComponent implements OnInit, OnDestroy {
     this.loadData();
   }
 
-  loadData(filterSelect?: string): void {
+  loadData(): void {
     this.subs.add(
       this.store.select('posts').pipe(take(1)).subscribe(s => {
         if (s.length > 1) {
-          if (filterSelect) {
-            const result = s.filter(p => p.type === filterSelect);
-            this.posts = result;
-          } else {
-            this.posts = s;
-          }
-          this.isLoading = false;
+          this.checkFilter(s);
         } else {
-          this.postService.getPosts().subscribe((resp: any) => {
-            this.posts = resp.incidents;
-            this.posts.map(ps => {
-              ps.occurred_at = moment(parseInt(ps.occurred_at, 10) * 1000).format('DD MMM YYYY');
-              if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
-            });
-            this.isLoading = false;
-            this.addPosts(this.posts);
-          }, error => {
-            console.log(error);
-          });
+          this.getData();
         }
-      }
-      )
+      })
     );
-
   }
 
   addPosts(posts): void {
@@ -75,7 +60,45 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   filterPosts(e: string): void {
-    this.loadData(e);
+    this.store.dispatch(new FilterActions.AddFilter(e));
+    this.loadData();
+  }
+
+  getData() {
+    this.subs.add(
+      this.postService.getPosts().subscribe((resp: any) => {
+        this.posts = resp.incidents;
+        this.posts.map(ps => {
+          ps.occurred_at = moment(parseInt(ps.occurred_at, 10) * 1000).format('DD MMM YYYY');
+          if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
+        });
+        this.isLoading = false;
+        this.addPosts(this.posts);
+      }, error => {
+        console.log(error);
+      })
+    );
+  }
+
+  checkFilter(s: IPost[]) {
+    this.subs.add(
+      this.store.select('filters').pipe(take(1)).subscribe(res => {
+        if (res[0].filter != '') {
+          const result = s.filter(p => p.type === res[0].filter);
+          if (result.length > 0) {
+            this.posts = result;
+            this.showMsg = false;
+          } else {
+            this.posts = s;
+            this.showMsg = true;
+          }
+          this.selected = res[0].filter;
+        } else {
+          this.posts = s;
+        }
+        this.isLoading = false;
+      })
+    );
   }
 
   ngOnDestroy(): void {

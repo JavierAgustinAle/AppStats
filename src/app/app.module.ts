@@ -9,6 +9,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // Redux
 import { StoreModule } from '@ngrx/store';
 import { PostReducer } from '../app/store/reducers/posts.reducer';
+import { FilterReducer } from '../app/store/reducers/filter.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { PostDetailsComponent } from './Components/post-details/post-details.com
 import { OlMapComponent } from './Components/ol-map/ol-map.component';
 import { TagsComponent } from './Components/tags/tags.component';
 import { MainNavComponent } from './Components/main-nav/main-nav.component';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -57,9 +59,12 @@ import { MainNavComponent } from './Components/main-nav/main-nav.component';
     ChartsModule,
     NgxPaginationModule,
     StoreModule.forRoot({
-      posts: PostReducer
+      posts: PostReducer,
+      filters: FilterReducer
     }),
-    StoreDevtoolsModule
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

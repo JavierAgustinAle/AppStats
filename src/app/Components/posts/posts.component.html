@@ -1,16 +1,15 @@
 <div *ngIf="isLoading">
     <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
 </div>
-
 <div *ngIf="!isLoading" class="filter-posts">
-
     <mat-form-field appearance="outline">
         <mat-label>Incident Type</mat-label>
-        <mat-select (selectionChange)="filterPosts($event.value)">
+        <mat-select [(value)]="selected" (selectionChange)="filterPosts($event.value)">
             <mat-option *ngFor="let t of types" [value]="t.value">
                 {{t.label}}
             </mat-option>
         </mat-select>
+        <mat-hint *ngIf="showMsg">There aren't any posts with this type.</mat-hint>
     </mat-form-field>
 </div>
 <main *ngIf="!isLoading">

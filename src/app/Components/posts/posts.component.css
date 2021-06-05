@@ -12,8 +12,9 @@ main {
 }
 .filter-posts {
     padding: 1rem;
-    padding-left: 3rem;
+  
     margin: 1em;
+    text-align: center;
 }
 .card {
     opacity: 0.8;
