@@ -64,7 +64,7 @@ export class PostsComponent implements OnInit, OnDestroy {
     this.loadData();
   }
 
-  getData() {
+  getData(): void {
     this.subs.add(
       this.postService.getPosts().subscribe((resp: any) => {
         this.posts = resp.incidents;
@@ -80,10 +80,10 @@ export class PostsComponent implements OnInit, OnDestroy {
     );
   }
 
-  checkFilter(s: IPost[]) {
+  checkFilter(s: IPost[]): void {
     this.subs.add(
       this.store.select('filters').pipe(take(1)).subscribe(res => {
-        if (res[0].filter != '') {
+        if (res[0].filter !== '') {
           const result = s.filter(p => p.type === res[0].filter);
           if (result.length > 0) {
             this.posts = result;

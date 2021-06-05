@@ -14,4 +14,5 @@ export function FilterReducer(state: any[] = [initialState], action: FilterActio
         default:
             return state;
     }
-};
+}
+
