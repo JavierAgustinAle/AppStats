@@ -95,6 +95,7 @@ export class PostsComponent implements OnInit, OnDestroy {
           this.selected = res[0].filter;
         } else {
           this.posts = s;
+          this.showMsg = false;
         }
         this.isLoading = false;
       })
