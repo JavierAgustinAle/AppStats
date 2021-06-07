@@ -1,8 +1,8 @@
 import { IPost } from 'src/app/Models/IPost.model';
-import { IUser } from 'src/app/Models/IUser.model';
+import { IFilter } from '../store/interfaces/filter.model';
 
 
 export interface AppState {
     readonly posts: IPost[];
-    readonly users: IUser[];
+    readonly filters: IFilter;
 }
