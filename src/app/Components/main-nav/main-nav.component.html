@@ -5,14 +5,17 @@
     <mat-toolbar></mat-toolbar>
     <mat-nav-list class="pt-5 mt-3">
       <span>
-        <a mat-list-item ngbTooltip="Users" (click)="closeBar() ? drawer.toggle() : null" routerLink='users'>
-          <i class="fa fa-users fa-lg"></i>
+        <a mat-list-item ngbTooltip="Users" (click)="closeBar() ? drawer.toggle() : null; changeIcon('user');"
+          routerLink='users'>
+          <i id="user" class="fa fa-users fa-lg iconSelect"></i>
         </a><br><br>
-        <a mat-list-item ngbTooltip="Posts" (click)="closeBar() ? drawer.toggle() : null" routerLink='posts'>
-          <mat-icon>file_copy</mat-icon>
+        <a mat-list-item ngbTooltip="Posts" (click)="closeBar() ? drawer.toggle() : null; changeIcon('post');"
+          routerLink='posts'>
+          <mat-icon id="post">file_copy</mat-icon>
         </a><br><br>
-        <a mat-list-item ngbTooltip="Tags" (click)="closeBar() ? drawer.toggle() : null" routerLink='tags'>
-          <i class="fa fa-tags fa-lg"></i>
+        <a mat-list-item ngbTooltip="Tags" (click)="closeBar() ? drawer.toggle() : null; changeIcon('tag');"
+          routerLink='tags'>
+          <i id="tag" class="fa fa-tags fa-lg"></i>
         </a>
       </span>
     </mat-nav-list>
@@ -24,6 +27,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="span">AppStats</span>
+      <p class="time">15:10:25</p>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
