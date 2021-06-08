@@ -27,6 +27,16 @@ export class MainNavComponent {
     }
   }
 
+  changeIcon(iconName: string): void {
+    const icons = ['user', 'post', 'tag'];
+    document.getElementById(iconName).classList.add('iconSelect');
+
+    for (let i of icons) {
+      if (i != iconName) {
+        document.getElementById(i).classList.remove('iconSelect');
+      }
+    }
+  }
 
 
 }

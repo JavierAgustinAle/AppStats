@@ -26,3 +26,12 @@
   margin: auto;
   font-family: 'Roboto', sans-serif;
 }
+
+.time {
+  padding-top: 1rem;
+  padding-right: 1rem;
+}
+
+.iconSelect { 
+  color:#b44cda;
+}
