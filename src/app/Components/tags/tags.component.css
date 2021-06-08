@@ -41,6 +41,10 @@ main div {
     padding: 2px 16px;
   }
 
+  .filter-alphabet {
+    cursor: pointer;
+  }
+
 
   @media screen and (max-width: 655px) and (min-width: 451px) {
     .card-div {
