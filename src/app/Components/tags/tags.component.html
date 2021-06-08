@@ -1,7 +1,7 @@
 <main>
     <div class="boxTags pt-2">
         <h3 class="pt-3 mt-3">Most used tags</h3>
-        <div class="pr-3">
+        <div class="pr-3" *ngIf="tags != undefined">
             <p (click)="sortLength()" class="filter-alphabet float-right p-1" ngbTooltip="Sort by lenght">
                 <span>
                     <i class="fa fa-sort fa-lg"></i>
