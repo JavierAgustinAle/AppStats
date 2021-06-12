@@ -3,7 +3,7 @@ import * as StateActions from '../actions/state.actions';
 
 
 const initialState: States = {
-    iconMenu: 'User'
+    iconMenu: 'user'
 };
 
 export function StateReducer(state: any[] = [initialState], action: StateActions.Actions): States[] {
