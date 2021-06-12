@@ -10,6 +10,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { StoreModule } from '@ngrx/store';
 import { PostReducer } from '../app/store/reducers/posts.reducer';
 import { FilterReducer } from '../app/store/reducers/filter.reducer';
+import { StateReducer } from '../app/store/reducers/state.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
@@ -60,7 +61,8 @@ import { environment } from 'src/environments/environment';
     NgxPaginationModule,
     StoreModule.forRoot({
       posts: PostReducer,
-      filters: FilterReducer
+      filters: FilterReducer,
+      states: StateReducer
     }),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
