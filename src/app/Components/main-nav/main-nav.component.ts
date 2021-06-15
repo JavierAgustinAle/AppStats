@@ -48,14 +48,21 @@ export class MainNavComponent implements OnInit, OnDestroy {
 
     this.subs.add(
       this.store.select('states').pipe(take(1)).subscribe(icon => {
-        document.getElementById(icon[0].iconMenu).classList.add('iconSelect');
+        console.log(icon)
+        if (icon[0].iconMenu != 'NotFound') {
+          document.getElementById(icon[0].iconMenu).classList.add('iconSelect');
 
-        for (let i of icons) {
-          if (i != icon[0].iconMenu) {
+          for (let i of icons) {
+            if (i != icon[0].iconMenu) {
+              document.getElementById(i).classList.remove('iconSelect');
+            }
+          }
+        } else {
+          for (let i of icons) {
             document.getElementById(i).classList.remove('iconSelect');
-
           }
         }
+
       })
     );
   }

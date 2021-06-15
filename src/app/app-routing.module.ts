@@ -5,6 +5,7 @@ import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
 import { PostDetailsComponent } from './Components/post-details/post-details.component';
 import { TagsComponent } from './Components/tags/tags.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: UserComponent },
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'posts', component: PostsComponent },
   { path: 'posts/:id', component: PostDetailsComponent },
   { path: 'tags', component: TagsComponent },
-  { path: '**', component: UserComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

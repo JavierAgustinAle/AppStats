@@ -1,0 +1,19 @@
+main {
+    font-family: 'Ubuntu', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin: 1em;
+    text-align: center;
+    padding-top: 5em;
+}
+
+h1 {
+    font-size: 6rem;
+    color:  #9900cc;
+}
+
+p {
+    font-size: 2rem;
+    color:  #9900cc;
+}
