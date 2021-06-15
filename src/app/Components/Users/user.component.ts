@@ -9,6 +9,10 @@ import { IUser } from '../../Models/IUser.model';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 
+// Redux
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
+import * as StateActions from '../../store/actions/state.actions';
 
 @Component({
   selector: 'app-user',
@@ -88,10 +92,11 @@ export class UserComponent implements OnInit {
     },
   ];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.loadData();
+    this.store.dispatch(new StateActions.ChangeIcon('user'));
   }
 
 

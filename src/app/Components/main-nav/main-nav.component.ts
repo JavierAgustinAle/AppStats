@@ -16,6 +16,7 @@ import * as StateActions from '../../store/actions/state.actions';
 })
 export class MainNavComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
+  icons$: Observable<any>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -23,10 +24,12 @@ export class MainNavComponent implements OnInit, OnDestroy {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>) { }
+  constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>) {
+    this.icons$ = this.store.select('states');
+  }
 
   ngOnInit(): void {
-    this.changeIcon();
+    this.icons$.subscribe(i => this.changeIcon(i[0].iconMenu, true));
   }
 
   closeBar(): boolean {
@@ -37,8 +40,8 @@ export class MainNavComponent implements OnInit, OnDestroy {
     }
   }
 
-  changeIcon(iconName?: string): void {
-    if (iconName) {
+  changeIcon(iconName?: string, init: boolean = false): void {
+    if (iconName && !init) {
       this.store.dispatch(new StateActions.ChangeIcon(iconName));
     }
     const icons = ['user', 'post', 'tag'];
