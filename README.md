@@ -1,6 +1,7 @@
 # AppStats
 
-This web app made with Angular 11 is a statistics panel where you can see stats about users, posts and the most use tags.
+# This web app made with Angular 11 is a statistics panel where you can see stats about users, posts and the most use tags.
+
  (The stats shown here are fake, they are fetch from web apis).
  ## Users Component (Three main stats are shown here about our users):
         * Genders 
