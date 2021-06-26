@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
 import * as PostsActions from '../../store/actions/posts.action';
 import * as FilterActions from '../../store/actions/filter.actions';
+import * as StateActions from '../../store/actions/state.actions';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -42,6 +43,7 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   loadData(): void {
+    this.store.dispatch(new StateActions.ChangeIcon('post'));
     this.subs.add(
       this.store.select('posts').pipe(take(1)).subscribe(s => {
         if (s.length > 1) {

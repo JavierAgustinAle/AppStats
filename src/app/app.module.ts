@@ -31,6 +31,7 @@ import { OlMapComponent } from './Components/ol-map/ol-map.component';
 import { TagsComponent } from './Components/tags/tags.component';
 import { MainNavComponent } from './Components/main-nav/main-nav.component';
 import { environment } from 'src/environments/environment';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 
 
@@ -42,7 +43,8 @@ import { environment } from 'src/environments/environment';
     PostsComponent,
     PostDetailsComponent,
     OlMapComponent,
-    TagsComponent],
+    TagsComponent,
+    PageNotFoundComponent],
   imports: [
     MatProgressBarModule,
     BrowserAnimationsModule,
