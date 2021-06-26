@@ -23,6 +23,7 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
@@ -32,6 +33,7 @@ import { TagsComponent } from './Components/tags/tags.component';
 import { MainNavComponent } from './Components/main-nav/main-nav.component';
 import { environment } from 'src/environments/environment';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { ErrorComponentComponent } from './shared/error-component/error-component.component';
 
 
 
@@ -44,7 +46,9 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
     PostDetailsComponent,
     OlMapComponent,
     TagsComponent,
-    PageNotFoundComponent],
+    PageNotFoundComponent,
+    ErrorComponentComponent
+  ],
   imports: [
     MatProgressBarModule,
     BrowserAnimationsModule,
@@ -69,6 +73,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

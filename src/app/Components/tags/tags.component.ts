@@ -14,7 +14,6 @@ import * as StateActions from '../../store/actions/state.actions';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit {
-
   tags: any[];
   order: string = 'desc';
 
