@@ -96,11 +96,12 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
-    this.store.dispatch(new StateActions.ChangeIcon('user'));
+    // this.store.dispatch(new StateActions.ChangeIcon('user'));
   }
 
 
   loadData(): void {
+    this.store.dispatch(new StateActions.ChangeIcon('user'));
     this.userService.getUsersGender().subscribe((res: any) => {
       this.usersGenders = res.results;
       this.loadChartGenders();

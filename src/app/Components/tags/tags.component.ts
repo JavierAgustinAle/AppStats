@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ITag } from '../../Models/ITag.model';
 import { TagService } from '../../Services/tag.service';
 
+// Redux
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
+import * as StateActions from '../../store/actions/state.actions';
+
+
 @Component({
   selector: 'app-tags',
   templateUrl: './tags.component.html',
@@ -12,9 +18,14 @@ export class TagsComponent implements OnInit {
   tags: any[];
   order: string = 'desc';
 
-  constructor(private tagService: TagService) { }
+  constructor(private tagService: TagService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void {
+    this.store.dispatch(new StateActions.ChangeIcon('tag'));
     this.tagService.getTags().subscribe((res: any) => {
       this.tags = res.data;
     });
