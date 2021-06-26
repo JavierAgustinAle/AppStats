@@ -28,6 +28,8 @@ export class TagsComponent implements OnInit {
     this.store.dispatch(new StateActions.ChangeIcon('tag'));
     this.tagService.getTags().subscribe((res: any) => {
       this.tags = res.data;
+    }, error => {
+      console.log(error);
     });
   }
 

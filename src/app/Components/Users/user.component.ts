@@ -96,7 +96,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
-    // this.store.dispatch(new StateActions.ChangeIcon('user'));
   }
 
 
@@ -105,11 +104,15 @@ export class UserComponent implements OnInit {
     this.userService.getUsersGender().subscribe((res: any) => {
       this.usersGenders = res.results;
       this.loadChartGenders();
+    }, error => {
+      console.log(error);
     });
 
     this.userService.getUsersAge().subscribe((response: any) => {
       this.userAges = response.results;
       this.loadChartAges();
+    }, error => {
+      console.log(error);
     });
 
     this.userService.getUsersCountry().subscribe((resp: any) => {
@@ -117,6 +120,8 @@ export class UserComponent implements OnInit {
       resp.results.map(c => allCountries.push(c.nat));
 
       this.loadStatsCountry(allCountries);
+    }, error => {
+      console.log(error);
     });
   }
 
