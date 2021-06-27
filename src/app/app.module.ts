@@ -23,7 +23,7 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { UserComponent } from './Components/Users/user.component';
 import { PostsComponent } from './Components/posts/posts.component';
@@ -73,7 +73,7 @@ import { ErrorComponentComponent } from './shared/error-component/error-componen
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
-    MatSnackBarModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

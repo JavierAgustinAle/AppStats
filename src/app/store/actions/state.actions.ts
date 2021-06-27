@@ -24,11 +24,11 @@ export class SetError implements Action {
 }
 
 
-export class SetErrorMsg implements Action {
+export class SetStatus implements Action {
     readonly type = SET_ERROR_MSG;
 
     constructor(public payload: string) { }
 }
 
 
-export type Actions = ChangeIcon | SetError | SetErrorMsg | GetState;
+export type Actions = ChangeIcon | SetError | SetStatus | GetState;

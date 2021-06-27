@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -10,7 +11,6 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-    // inc=gender,name,nat,registered,dob&results=50
     // Url
     protected userGender = environment.URL + 'inc=gender&results=50';
 
@@ -22,15 +22,22 @@ export class UserService {
 
 
     getUsersGender(): Observable<any> {
-        return this.httpClient.get(this.userGender);
+        return this.httpClient.get(this.userGender).pipe(
+            catchError(this.errorHandler));
     }
 
     getUsersAge(): Observable<any> {
-        return this.httpClient.get(this.userAges);
+        return this.httpClient.get(this.userAges).pipe(
+            catchError(this.errorHandler));
     }
 
     getUsersCountry(): Observable<any> {
-        return this.httpClient.get(this.userCountries);
+        return this.httpClient.get(this.userCountries).pipe(
+            catchError(this.errorHandler));
+    }
+
+    errorHandler(error: HttpErrorResponse) {
+        return observableThrowError(error.status || 'Server Error');
     }
 
 }

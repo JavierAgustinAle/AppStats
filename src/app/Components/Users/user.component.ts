@@ -105,14 +105,16 @@ export class UserComponent implements OnInit {
       this.usersGenders = res.results;
       this.loadChartGenders();
     }, error => {
-      console.log(error);
+      this.store.dispatch(new StateActions.SetError(true));
+      this.store.dispatch(new StateActions.SetStatus(error));
     });
 
     this.userService.getUsersAge().subscribe((response: any) => {
       this.userAges = response.results;
       this.loadChartAges();
     }, error => {
-      console.log(error);
+      this.store.dispatch(new StateActions.SetError(true));
+      this.store.dispatch(new StateActions.SetStatus(error));
     });
 
     this.userService.getUsersCountry().subscribe((resp: any) => {
@@ -121,7 +123,8 @@ export class UserComponent implements OnInit {
 
       this.loadStatsCountry(allCountries);
     }, error => {
-      console.log(error);
+      this.store.dispatch(new StateActions.SetError(true));
+      this.store.dispatch(new StateActions.SetStatus(error));
     });
   }
 

@@ -77,7 +77,9 @@ export class PostsComponent implements OnInit, OnDestroy {
         this.isLoading = false;
         this.addPosts(this.posts);
       }, error => {
-        console.log(error);
+        this.store.dispatch(new StateActions.SetError(true));
+        this.store.dispatch(new StateActions.SetStatus(error));
+        this.isLoading = false;
       })
     );
   }

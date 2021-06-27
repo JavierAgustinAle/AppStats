@@ -5,7 +5,7 @@ import * as StateActions from '../actions/state.actions';
 const initialState: States = {
     iconMenu: 'user',
     errorStatus: false,
-    errorMsg: ''
+    errorType: ''
 };
 
 const newState = (state, newData) => {
@@ -22,7 +22,7 @@ export function StateReducer(state: States = initialState, action: StateActions.
         case StateActions.SET_ERROR:
             return newState(state, { errorStatus: action.payload });
         case StateActions.SET_ERROR_MSG:
-            return newState(state, { errorMsg: action.payload });
+            return newState(state, { errorType: action.payload });
         default:
             return state;
     }
