@@ -3,15 +3,26 @@ import * as StateActions from '../actions/state.actions';
 
 
 const initialState: States = {
-    iconMenu: 'user'
+    iconMenu: 'user',
+    errorStatus: false,
+    errorMsg: ''
 };
 
-export function StateReducer(state: any[] = [initialState], action: StateActions.Actions): States[] {
+const newState = (state, newData) => {
+    return Object.assign({}, state, newData);
+};
+
+
+export function StateReducer(state: States = initialState, action: StateActions.Actions) {
     switch (action.type) {
-        case StateActions.CHANGE_ICON:
-            return [{ iconMenu: action.payload }];
-        case StateActions.GET_ICON_SELECTED:
+        case StateActions.GET_STATE:
             return state;
+        case StateActions.CHANGE_ICON:
+            return newState(state, { iconMenu: action.payload });
+        case StateActions.SET_ERROR:
+            return newState(state, { errorStatus: action.payload });
+        case StateActions.SET_ERROR_MSG:
+            return newState(state, { errorMsg: action.payload });
         default:
             return state;
     }

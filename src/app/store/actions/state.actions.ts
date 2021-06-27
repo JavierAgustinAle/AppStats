@@ -1,7 +1,11 @@
 import { Action } from '@ngrx/store';
 
 export const CHANGE_ICON = '[NavBar] Change Icon';
-export const GET_ICON_SELECTED = '[NavBar] Get Icon Selected';
+
+export const GET_STATE = '[States] Get States';
+
+export const SET_ERROR = '[Error] Set Error';
+export const SET_ERROR_MSG = '[Error] Set Msg';
 
 export class ChangeIcon implements Action {
     readonly type = CHANGE_ICON;
@@ -9,8 +13,22 @@ export class ChangeIcon implements Action {
     constructor(public payload: string) { }
 }
 
-export class GetIconSelected implements Action {
-    readonly type = GET_ICON_SELECTED;
+export class GetState implements Action {
+    readonly type = GET_STATE;
 }
 
-export type Actions = ChangeIcon | GetIconSelected;
+export class SetError implements Action {
+    readonly type = SET_ERROR;
+
+    constructor(public payload: boolean) { }
+}
+
+
+export class SetErrorMsg implements Action {
+    readonly type = SET_ERROR_MSG;
+
+    constructor(public payload: string) { }
+}
+
+
+export type Actions = ChangeIcon | SetError | SetErrorMsg | GetState;

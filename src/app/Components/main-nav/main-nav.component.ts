@@ -29,7 +29,7 @@ export class MainNavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.icons$.subscribe(i => this.changeIcon(i[0].iconMenu, true));
+    this.icons$.subscribe(i => this.changeIcon(i.iconMenu, true));
   }
 
   closeBar(): boolean {
@@ -48,11 +48,11 @@ export class MainNavComponent implements OnInit, OnDestroy {
 
     this.subs.add(
       this.store.select('states').pipe(take(1)).subscribe(icon => {
-        if (icon[0].iconMenu != 'NotFound') {
-          document.getElementById(icon[0].iconMenu).classList.add('iconSelect');
+        if (icon.iconMenu != 'NotFound') {
+          document.getElementById(icon.iconMenu).classList.add('iconSelect');
 
           for (let i of icons) {
-            if (i != icon[0].iconMenu) {
+            if (i != icon.iconMenu) {
               document.getElementById(i).classList.remove('iconSelect');
             }
           }

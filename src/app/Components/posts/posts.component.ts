@@ -85,8 +85,8 @@ export class PostsComponent implements OnInit, OnDestroy {
   checkFilter(s: IPost[]): void {
     this.subs.add(
       this.store.select('filters').pipe(take(1)).subscribe(res => {
-        if (res[0].filter !== '') {
-          const result = s.filter(p => p.type === res[0].filter);
+        if (res.filter !== '') {
+          const result = s.filter(p => p.type === res.filter);
           if (result.length > 0) {
             this.posts = result;
             this.showMsg = false;
@@ -94,7 +94,7 @@ export class PostsComponent implements OnInit, OnDestroy {
             this.posts = s;
             this.showMsg = true;
           }
-          this.selected = res[0].filter;
+          this.selected = res.filter;
         } else {
           this.posts = s;
           this.showMsg = false;
