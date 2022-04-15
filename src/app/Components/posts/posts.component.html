@@ -16,15 +16,14 @@
     <span class="pb-2 row"
         *ngFor="let p of posts | paginate: { itemsPerPage: 20, currentPage: pageNumber } ; let i = index">
         <div class="card card-custom bg-white border-white border-0" [routerLink]="['/posts', p.id]">
-            <div class="card-custom-img" *ngIf="!p.media.image_url"
+            <div class="card-custom-img" *ngIf="!p.large_img"
                 style="background-image: url(https://img.freepik.com/vector-gratis/fondo-diseno-abstracto-degradado-azul-morado_1048-13167.jpg?size=626&ext=jpg&ga=GA1.2.855662366.1616976000);">
             </div>
-            <div class="card-custom-img" *ngIf="p.media.image_url"
-                style="background-image: url({{p.media.image_url}});">
+            <div class="card-custom-img" *ngIf="p.large_img" style="background-image: url({{p.large_img}});">
             </div>
             <div class="card-body">
                 <div>
-                    <h4 class="card-title">{{p.title }}</h4>
+                    <h5 class="card-title">{{p.title }}</h5>
                     <p class="card-text pb-3" *ngIf="p.description">{{p.description | slice:0:90 }}{{
                         p.description.length >
                         150
@@ -34,12 +33,13 @@
                     <div class="pb-5 mb-3" *ngIf="!p.description"></div>
                 </div>
                 <div class="row text-center">
-                    <p class="col-6 detail">Type</p>
-                    <p class="col-6 float-right">{{p.type ? p.type : '-'}}</p>
+                    <p class="col-6 detail">Manufacter</p>
+                    <p class="col-6 float-right">{{p.manufacturer_name ? p.manufacturer_name : '-'}}</p>
                     <p class="col-6 detail">Date</p>
-                    <p class="col-6 float-right">{{p.occurred_at}}</p>
+                    <p class="col-6 float-right">{{p.date_stolen}}</p>
                     <p class="col-6 detail">Address</p>
-                    <p class="col-6">{{p.address}}</p>
+                    <p *ngIf="p.stolen_location != null" class="col-6">{{p.stolen_location}}</p>
+                    <p *ngIf="p.stolen_location == null" class="col-6">-</p>
                 </div>
 
             </div>

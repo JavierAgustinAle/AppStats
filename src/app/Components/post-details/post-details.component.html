@@ -4,10 +4,10 @@
 <div class="container pt-3" *ngIf="post != null">
     <div class="main pb-3">
         <div class="section1 card">
-            <span *ngIf="post.media.image_url">
-                <img class="card-img-top" src={{post.media.image_url}} alt="{{post.title}}">
+            <span *ngIf="post.large_img">
+                <img class="card-img-top" src={{post.large_img}} alt="{{post.title}}">
             </span>
-            <span *ngIf="!post.media.image_url">
+            <span *ngIf="!post.large_img">
                 <img class="card-img-top"
                     src="https://image.freepik.com/vector-gratis/resumen-3d-poligonal-lujo-azul-oscuro-fondo-morado_41814-414.jpg"
                     alt="No Image Upload">
@@ -16,20 +16,21 @@
         <div class="section2 card">
             <div class="card-body">
                 <h3 class="card-title text-center">{{post.title}}</h3>
-                <h5 class="card-subtitle mb-2 text-muted pt-2">Posted {{post.occurred_at}}</h5>
+                <h5 class="card-subtitle mb-2 text-muted pt-2">Posted {{post.date_stolen}}</h5>
                 <p class="card-text pt-2">{{post.description}}</p>
-                <h5 class="card-text pt-3">Incident type: {{post.type}}</h5>
+                <!-- <h5 class="card-text pt-3">Incident type: {{post.type}}</h5> -->
+                <h5 class="card-subtitle mb-2 text-muted pt-2">Posted {{post.date_stolen}}</h5>
             </div>
         </div>
     </div>
     <div class="section-map">
         <div *ngIf="lat != null && lng != null" id="map-container">
-            <h6 class="text-center pt-1">Incident address {{post.address}}</h6>
+            <h6 class="text-center pt-1">Incident address {{post.stolen_location}}</h6>
             <app-ol-map [lat]="lat" [lng]="lng" zoom="16" width="100%" height="400px">
             </app-ol-map>
         </div>
         <div *ngIf="lng === null">
-            <h4 class="text-center p-4">Incident address {{post.address}}</h4>
+            <h4 class="text-center p-4">Incident address {{post.stolen_location}}</h4>
         </div>
     </div>
 </div>
