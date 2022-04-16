@@ -5,7 +5,7 @@
     <mat-form-field appearance="outline">
         <mat-label>Incident Type</mat-label>
         <mat-select [(value)]="selected" (selectionChange)="filterPosts($event.value)">
-            <mat-option *ngFor="let t of types" [value]="t.value">
+            <mat-option *ngFor="let t of status" [value]="t.value">
                 {{t.label}}
             </mat-option>
         </mat-select>

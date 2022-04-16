@@ -26,14 +26,10 @@ export class PostsComponent implements OnInit, OnDestroy {
   pageNumber = 1;
   selected: string;
   showMsg = false;
-  types = [
+  status = [
     { value: '', label: 'Show All' },
-    { value: 'Undefined', label: 'Undefined' },
-    { value: 'Hazard', label: 'Hazard' },
-    { value: 'Theft', label: 'Theft' },
-    { value: 'Crash', label: 'Crash' },
-    { value: 'Infrastructure issue', label: 'Infrasctucture Issue' },
-    { value: 'Chop shop', label: 'Chop Shop' }
+    { value: 'stolen', label: 'Stolen' },
+    { value: 'found', label: 'Found' }
   ];
 
   constructor(private postService: PostService, private store: Store<AppState>) { }
@@ -57,7 +53,6 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   addPosts(posts): void {
     for (let i = 0; i < posts.length; i++) {
-      console.log(posts)
       this.store.dispatch(new PostsActions.AddPosts(posts[i]));
     }
   }
@@ -77,7 +72,6 @@ export class PostsComponent implements OnInit, OnDestroy {
         });
         this.isLoading = false;
         this.addPosts(this.posts);
-        console.log(this.posts)
       }, error => {
         this.store.dispatch(new StateActions.SetError(true));
         this.store.dispatch(new StateActions.SetStatus(error));
@@ -88,7 +82,6 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   checkFilter(s: IPost[]): void {
     this.subs.add(
-      // Cambiar Filtros, ya no existen
       this.store.select('filters').pipe(take(1)).subscribe(res => {
         if (res.filter !== '') {
           const result = s.filter(p => p.status === res.filter);

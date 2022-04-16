@@ -27,7 +27,6 @@ export class PostDetailsComponent implements OnInit {
     this.postService.getPostByID(postId).subscribe((res: any) => {
       this.post = res.bike;
       this.post.date_stolen = moment(parseInt(this.post.date_stolen, 10) * 1000).format('DD MMM YYYY');
-      console.log(this.post)
       if (this.post.stolen_coordinates != null) {
         this.lat = this.post.stolen_coordinates[0];
         this.lng = this.post.stolen_coordinates[1];

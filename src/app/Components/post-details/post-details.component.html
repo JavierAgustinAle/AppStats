@@ -4,10 +4,10 @@
 <div class="container pt-3" *ngIf="post != null">
     <div class="main pb-3">
         <div class="section1 card">
-            <span *ngIf="post.public_images[0].medium">
+            <span *ngIf="post.public_images.length > 0">
                 <img class="card-img-top" src={{post.public_images[0].medium}} alt="{{post.title}}">
             </span>
-            <span *ngIf="!post.public_images[0].medium">
+            <span *ngIf="post.public_images.length === 0">
                 <img class="card-img-top"
                     src="https://image.freepik.com/vector-gratis/resumen-3d-poligonal-lujo-azul-oscuro-fondo-morado_41814-414.jpg"
                     alt="No Image Upload">
