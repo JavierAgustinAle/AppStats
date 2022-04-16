@@ -4,10 +4,10 @@
 <div class="container pt-3" *ngIf="post != null">
     <div class="main pb-3">
         <div class="section1 card">
-            <span *ngIf="post.large_img">
-                <img class="card-img-top" src={{post.large_img}} alt="{{post.title}}">
+            <span *ngIf="post.public_images[0].medium">
+                <img class="card-img-top" src={{post.public_images[0].medium}} alt="{{post.title}}">
             </span>
-            <span *ngIf="!post.large_img">
+            <span *ngIf="!post.public_images[0].medium">
                 <img class="card-img-top"
                     src="https://image.freepik.com/vector-gratis/resumen-3d-poligonal-lujo-azul-oscuro-fondo-morado_41814-414.jpg"
                     alt="No Image Upload">
@@ -16,10 +16,13 @@
         <div class="section2 card">
             <div class="card-body">
                 <h3 class="card-title text-center">{{post.title}}</h3>
-                <h5 class="card-subtitle mb-2 text-muted pt-2">Posted {{post.date_stolen}}</h5>
-                <p class="card-text pt-2">{{post.description}}</p>
-                <!-- <h5 class="card-text pt-3">Incident type: {{post.type}}</h5> -->
-                <h5 class="card-subtitle mb-2 text-muted pt-2">Posted {{post.date_stolen}}</h5>
+                <h5 class="card-subtitle mb-2 text-muted pt-2 text-center">Stolen : {{post.date_stolen}}</h5>
+                <h6 class="card-subtitle mb-2 pt-2">Status : <b>{{post.status}}</b></h6>
+                <p class="card-text pt-2">Manufacter : {{post.manufacturer_name}}</p>
+                <p class="card-text pt-2">Frame Model : {{post.frame_model}}</p>
+                <p class="card-text pt-3">Serial: {{post.serial}}</p>
+                <p class="card-text pt-2">Frame Colors :</p>
+                <ul *ngFor="let i of post.frame_colors">* {{i}}</ul>
             </div>
         </div>
     </div>

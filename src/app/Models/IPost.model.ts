@@ -10,8 +10,10 @@ export interface IPost {
     status: string;
     large_img: string;
     stolen_coordinates?: number[]
-
+    public_images?: Media[];
 }
 
 
-
+interface Media {
+    medium: string;
+}

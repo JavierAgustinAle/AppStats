@@ -57,6 +57,7 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   addPosts(posts): void {
     for (let i = 0; i < posts.length; i++) {
+      console.log(posts)
       this.store.dispatch(new PostsActions.AddPosts(posts[i]));
     }
   }
@@ -86,25 +87,26 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   checkFilter(s: IPost[]): void {
-    // this.subs.add(
-    //   this.store.select('filters').pipe(take(1)).subscribe(res => {
-    //     if (res.filter !== '') {
-    //       const result = s.filter(p => p.type === res.filter);
-    //       if (result.length > 0) {
-    //         this.posts = result;
-    //         this.showMsg = false;
-    //       } else {
-    //         this.posts = s;
-    //         this.showMsg = true;
-    //       }
-    //       this.selected = res.filter;
-    //     } else {
-    //       this.posts = s;
-    //       this.showMsg = false;
-    //     }
-    //     this.isLoading = false;
-    //   })
-    // );
+    this.subs.add(
+      // Cambiar Filtros, ya no existen
+      this.store.select('filters').pipe(take(1)).subscribe(res => {
+        if (res.filter !== '') {
+          const result = s.filter(p => p.status === res.filter);
+          if (result.length > 0) {
+            this.posts = result;
+            this.showMsg = false;
+          } else {
+            this.posts = s;
+            this.showMsg = true;
+          }
+          this.selected = res.filter;
+        } else {
+          this.posts = s;
+          this.showMsg = false;
+        }
+        this.isLoading = false;
+      })
+    );
   }
 
   ngOnDestroy(): void {
