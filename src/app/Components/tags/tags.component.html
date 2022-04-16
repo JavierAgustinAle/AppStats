@@ -17,7 +17,7 @@
             <span class="p-2" *ngFor='let tag of tags'>
                 <div class="card">
                     <div class="container">
-                        <h5><b>{{tag}}</b>
+                        <h5><b>{{tag | slice:0:20 }}</b>
                         </h5>
                     </div>
                 </div>
