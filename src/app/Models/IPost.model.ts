@@ -1,23 +1,19 @@
 export interface IPost {
     id: number;
-    address: string;
-    description: string;
-    media: Media;
-    occurred_at: any;
-    updated_at: number;
+    stolen_location: string;
+    manufacturer_name: string;
+    date_stolen: any;
     title: string;
-    type: string;
-    source: Source;
-
+    description: string;
+    serial: string;
+    url: string;
+    status: string;
+    large_img: string;
+    stolen_coordinates?: number[]
+    public_images?: Media[];
 }
+
 
 interface Media {
-    image_url: string;
-    image_url_thumb: string;
-}
-
-interface Source {
-    name: string;
-    html_url: string;
-    api_url: string;
+    medium: string;
 }

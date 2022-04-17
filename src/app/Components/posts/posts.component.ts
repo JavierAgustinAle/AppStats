@@ -26,14 +26,10 @@ export class PostsComponent implements OnInit, OnDestroy {
   pageNumber = 1;
   selected: string;
   showMsg = false;
-  types = [
+  status = [
     { value: '', label: 'Show All' },
-    { value: 'Undefined', label: 'Undefined' },
-    { value: 'Hazard', label: 'Hazard' },
-    { value: 'Theft', label: 'Theft' },
-    { value: 'Crash', label: 'Crash' },
-    { value: 'Infrastructure issue', label: 'Infrasctucture Issue' },
-    { value: 'Chop shop', label: 'Chop Shop' }
+    { value: 'stolen', label: 'Stolen' },
+    { value: 'found', label: 'Found' }
   ];
 
   constructor(private postService: PostService, private store: Store<AppState>) { }
@@ -69,10 +65,10 @@ export class PostsComponent implements OnInit, OnDestroy {
   getData(): void {
     this.subs.add(
       this.postService.getPosts().subscribe((resp: any) => {
-        this.posts = resp.incidents;
+        this.posts = resp.bikes;
         this.posts.map(ps => {
-          ps.occurred_at = moment(parseInt(ps.occurred_at, 10) * 1000).format('DD MMM YYYY');
-          if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
+          ps.date_stolen != null ? ps.date_stolen = moment(parseInt(ps.date_stolen, 10) * 1000).format('DD MMM YYYY') : ps.date_stolen = 'No data';
+           // if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
         });
         this.isLoading = false;
         this.addPosts(this.posts);
@@ -88,7 +84,7 @@ export class PostsComponent implements OnInit, OnDestroy {
     this.subs.add(
       this.store.select('filters').pipe(take(1)).subscribe(res => {
         if (res.filter !== '') {
-          const result = s.filter(p => p.type === res.filter);
+          const result = s.filter(p => p.status === res.filter);
           if (result.length > 0) {
             this.posts = result;
             this.showMsg = false;

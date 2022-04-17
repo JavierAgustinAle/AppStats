@@ -12,7 +12,7 @@ import { catchError } from 'rxjs/operators';
 export class TagService {
 
     // Url
-    protected tagsAll = environment.TAGS_URL + 'limit=100';
+    protected tagsAll = environment.TAGS_URL;
 
     constructor(private httpClient: HttpClient) { }
 

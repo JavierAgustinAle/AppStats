@@ -16,6 +16,7 @@ import * as StateActions from '../../store/actions/state.actions';
 export class TagsComponent implements OnInit {
   tags: any[];
   order: string = 'desc';
+  descending: boolean = false;
 
   constructor(private tagService: TagService, private store: Store<AppState>) { }
 
@@ -27,6 +28,8 @@ export class TagsComponent implements OnInit {
     this.store.dispatch(new StateActions.ChangeIcon('tag'));
     this.tagService.getTags().subscribe((res: any) => {
       this.tags = res.data;
+      this.tags.splice(0, 1);
+      this.tags.splice(100);
     }, error => {
       this.store.dispatch(new StateActions.SetError(true));
       this.store.dispatch(new StateActions.SetStatus(error));
@@ -34,10 +37,20 @@ export class TagsComponent implements OnInit {
   }
 
   sortAlphabet(): void {
-    this.tags.sort(function (a, b) {
-      var n = a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase());
-      return n === 0 && a !== b ? b.localeCompare(a) : n;
-    });
+    if (!this.descending) {
+      this.tags = this.tags.sort((a, b) => a.toLocaleLowerCase().trim().localeCompare(b.toLocaleLowerCase().trim()));
+    } else {
+      this.tags.sort(function (a, b) {
+        if (a.toLocaleLowerCase().trim() > b.toLocaleLowerCase().trim()) {
+          return -1;
+        }
+        if (b.toLocaleLowerCase().trim() > a.toLocaleLowerCase().trim()) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    this.descending = !this.descending;
   }
 
   sortLength(): void {

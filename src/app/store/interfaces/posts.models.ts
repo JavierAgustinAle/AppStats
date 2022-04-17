@@ -1,11 +1,18 @@
 export interface Posts {
     id?: number;
-    address?: string;
-    description?: string;
-    media?: any;
-    occurred_at?: any;
-    updated_at?: number;
+    stolen_location?: string;
+    manufacturer_name?: string;
+    date_stolen?: any;
     title?: string;
-    type?: string;
-    source?: any;
+    description?: string;
+    serial?: string;
+    url?: string;
+    status?: string;
+    stolen_coordinates?: number[];
+    public_images?: Media[];
+}
+
+
+interface Media {
+    medium: string;
 }
