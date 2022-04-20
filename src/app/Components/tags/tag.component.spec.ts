@@ -46,6 +46,13 @@ describe('Test Tag Component', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('should loadData', () => {
+    spyOn(service, 'getTags').and.callThrough();
+    component.loadData();
+    expect(service.getTags).toHaveBeenCalledWith();
+
+  })
+
   describe('Test sortAphabet', () => {
     beforeEach(() => { component.tags = ['Zoo', 'Angular', 'Bikes']; });
 

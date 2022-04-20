@@ -59,7 +59,7 @@ describe('Post Service Unit Test', () => {
       expect(posts).toEqual(getAllResponse);
     });
 
-    const req = httpTestingController.expectOne(environment.POSTS_URL + '?page=1&per_page=250&stolenness=all');
+    const req = httpTestingController.expectOne(environment.POSTS_URL + '?page=1&per_page=100&stolenness=all');
     expect(req.request.method).toEqual('GET');
   });
 
