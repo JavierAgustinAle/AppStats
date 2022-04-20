@@ -5,9 +5,10 @@ export const environment = {
   URL: 'https://randomuser.me/api/?',
 
   // Posts API
-  POSTS_URL: 'https://bikewise.org:443/api/v2/incidents',
+  POSTS_URL: 'https:///bikeindex.org:443/api/v3/search',
+  POST_GET_BY_ID: 'https://bikeindex.org:443/api/v3/bikes',
 
   // Tags API
-  TAGS_URL: 'https://dummyapi.io/data/api/tag?',
-  API_KEY: '60abbfa4d68ac91cdbc1bd04'
+  TAGS_URL: 'https://dummyapi.io/data/v1/tag',
+  API_KEY: '625b1cbe96cdd438e9d897e2'
 };

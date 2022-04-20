@@ -7,6 +7,7 @@ export interface Posts {
     description?: string;
     serial?: string;
     url?: string;
+    large_img?: string;
     status?: string;
     stolen_coordinates?: number[];
     public_images?: Media[];

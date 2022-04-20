@@ -68,7 +68,6 @@ export class PostsComponent implements OnInit, OnDestroy {
         this.posts = resp.bikes;
         this.posts.map(ps => {
           ps.date_stolen != null ? ps.date_stolen = moment(parseInt(ps.date_stolen, 10) * 1000).format('DD MMM YYYY') : ps.date_stolen = 'No data';
-           // if (ps.type === 'Unconfirmed') { ps.type = 'Undefined'; }
         });
         this.isLoading = false;
         this.addPosts(this.posts);
