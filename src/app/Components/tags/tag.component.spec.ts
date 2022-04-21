@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { waitForAsync, ComponentFixture, TestBed, fakeAsync } from "@angular/core/testing";
+import { waitForAsync, ComponentFixture, TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from '@angular/router/testing';
 import { TagService } from '../../Services/tag.service';
 import { TagsComponent } from './tags.component';
