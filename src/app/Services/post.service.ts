@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class PostService {
 
     // Url 
-    protected postsAll = environment.POSTS_URL + '?page=1&per_page=250&stolenness=all';
+    protected postsAll = environment.POSTS_URL + '?page=1&per_page=100&stolenness=all';
     protected postById = environment.POST_GET_BY_ID + '/{id}';
 
 

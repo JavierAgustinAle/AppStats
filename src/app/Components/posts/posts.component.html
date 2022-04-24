@@ -17,7 +17,7 @@
         *ngFor="let p of posts | paginate: { itemsPerPage: 20, currentPage: pageNumber } ; let i = index">
         <div class="card card-custom bg-white border-white border-0" [routerLink]="['/posts', p.id]">
             <div class="card-custom-img" *ngIf="!p.large_img"
-                style="background-image: url(https://img.freepik.com/vector-gratis/fondo-diseno-abstracto-degradado-azul-morado_1048-13167.jpg?size=626&ext=jpg&ga=GA1.2.855662366.1616976000);">
+                style="background-image: url(https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg);">
             </div>
             <div class="card-custom-img" *ngIf="p.large_img" style="background-image: url({{p.large_img}});">
             </div>

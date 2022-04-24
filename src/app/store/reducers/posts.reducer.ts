@@ -11,7 +11,8 @@ const initialState: Posts = {
     serial: 'WSBC618204519N',
     url: 'https://bikeindex.org/bikes/1269089',
     status: 'stolen',
-    stolen_coordinates: [53.54, -113.52]
+    stolen_coordinates: [53.54, -113.52],
+    large_img: 'https://www.tretwerk.net/out/pictures/magictoolbox_cache/8c95d73fec130487c102a73bf1ab42ce/1/5/154c7b6f47679a6189a7b0485e8fab3d/thumb745x470/3800130063/MGI2102104114-15_Roam_2_1.jpg'
 };
 
 
