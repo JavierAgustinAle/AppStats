@@ -51,12 +51,6 @@ describe('Test Posts Component', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  // it('should getData', () => {
-  //   spyOn(service, 'getPosts').and.callThrough();
-
-  //   component.getData();
-  //   expect(service.getPosts).toHaveBeenCalled();
-  // });
 
   it('should checkFilter from store', () => {
     const s = [{

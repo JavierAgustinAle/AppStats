@@ -49,7 +49,7 @@ describe('Test Tag Component', () => {
   it('should loadData', () => {
     spyOn(service, 'getTags').and.callThrough();
     component.loadData();
-    expect(service.getTags).toHaveBeenCalledWith();
+    expect(service.getTags).toHaveBeenCalled();
 
   })
 
